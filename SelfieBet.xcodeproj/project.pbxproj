@@ -1,0 +1,664 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DE06319624B4A39B00E51440 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06319524B4A39B00E51440 /* CameraViewController.swift */; };
+		DE10030824893F0E004F9FE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10030724893F0E004F9FE1 /* AppDelegate.swift */; };
+		DE10030A24893F0E004F9FE1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10030924893F0E004F9FE1 /* SceneDelegate.swift */; };
+		DE10030C24893F0E004F9FE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10030B24893F0E004F9FE1 /* ViewController.swift */; };
+		DE10030F24893F0E004F9FE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE10030D24893F0E004F9FE1 /* Main.storyboard */; };
+		DE10031224893F0E004F9FE1 /* SelfieBet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE10031024893F0E004F9FE1 /* SelfieBet.xcdatamodeld */; };
+		DE10031424893F0F004F9FE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE10031324893F0F004F9FE1 /* Assets.xcassets */; };
+		DE10031724893F0F004F9FE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE10031524893F0F004F9FE1 /* LaunchScreen.storyboard */; };
+		DE10032224893F0F004F9FE1 /* SelfieBetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10032124893F0F004F9FE1 /* SelfieBetTests.swift */; };
+		DE10032D24893F0F004F9FE1 /* SelfieBetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10032C24893F0F004F9FE1 /* SelfieBetUITests.swift */; };
+		DEBE4F5D24B5E4DC0056E02A /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE4F5C24B5E4DC0056E02A /* PreviewView.swift */; };
+		DEBE4F6124B5E9B40056E02A /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE4F6024B5E9B40056E02A /* CameraController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DE10031E24893F0F004F9FE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE1002FC24893F0E004F9FE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE10030324893F0E004F9FE1;
+			remoteInfo = SelfieBet;
+		};
+		DE10032924893F0F004F9FE1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DE1002FC24893F0E004F9FE1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE10030324893F0E004F9FE1;
+			remoteInfo = SelfieBet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DE06319524B4A39B00E51440 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		DE10030424893F0E004F9FE1 /* Selfie Betting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Selfie Betting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE10030724893F0E004F9FE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DE10030924893F0E004F9FE1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DE10030B24893F0E004F9FE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DE10030E24893F0E004F9FE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DE10031124893F0E004F9FE1 /* SelfieBet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SelfieBet.xcdatamodel; sourceTree = "<group>"; };
+		DE10031324893F0F004F9FE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DE10031624893F0F004F9FE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DE10031824893F0F004F9FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE10031D24893F0F004F9FE1 /* SelfieBetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfieBetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE10032124893F0F004F9FE1 /* SelfieBetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieBetTests.swift; sourceTree = "<group>"; };
+		DE10032324893F0F004F9FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE10032824893F0F004F9FE1 /* SelfieBetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfieBetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE10032C24893F0F004F9FE1 /* SelfieBetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieBetUITests.swift; sourceTree = "<group>"; };
+		DE10032E24893F0F004F9FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DEBE4F5C24B5E4DC0056E02A /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		DEBE4F6024B5E9B40056E02A /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DE10030124893F0E004F9FE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE10031A24893F0F004F9FE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE10032524893F0F004F9FE1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DE1002FB24893F0E004F9FE1 = {
+			isa = PBXGroup;
+			children = (
+				DE10030624893F0E004F9FE1 /* SelfieBet */,
+				DE10032024893F0F004F9FE1 /* SelfieBetTests */,
+				DE10032B24893F0F004F9FE1 /* SelfieBetUITests */,
+				DE10030524893F0E004F9FE1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DE10030524893F0E004F9FE1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DE10030424893F0E004F9FE1 /* Selfie Betting.app */,
+				DE10031D24893F0F004F9FE1 /* SelfieBetTests.xctest */,
+				DE10032824893F0F004F9FE1 /* SelfieBetUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DE10030624893F0E004F9FE1 /* SelfieBet */ = {
+			isa = PBXGroup;
+			children = (
+				DE10033A24893FEF004F9FE1 /* Source */,
+				DE10030724893F0E004F9FE1 /* AppDelegate.swift */,
+				DE10030924893F0E004F9FE1 /* SceneDelegate.swift */,
+				DE10030D24893F0E004F9FE1 /* Main.storyboard */,
+				DE10031324893F0F004F9FE1 /* Assets.xcassets */,
+				DE10031524893F0F004F9FE1 /* LaunchScreen.storyboard */,
+				DE10031824893F0F004F9FE1 /* Info.plist */,
+				DE10031024893F0E004F9FE1 /* SelfieBet.xcdatamodeld */,
+			);
+			path = SelfieBet;
+			sourceTree = "<group>";
+		};
+		DE10032024893F0F004F9FE1 /* SelfieBetTests */ = {
+			isa = PBXGroup;
+			children = (
+				DE10032124893F0F004F9FE1 /* SelfieBetTests.swift */,
+				DE10032324893F0F004F9FE1 /* Info.plist */,
+			);
+			path = SelfieBetTests;
+			sourceTree = "<group>";
+		};
+		DE10032B24893F0F004F9FE1 /* SelfieBetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DE10032C24893F0F004F9FE1 /* SelfieBetUITests.swift */,
+				DE10032E24893F0F004F9FE1 /* Info.plist */,
+			);
+			path = SelfieBetUITests;
+			sourceTree = "<group>";
+		};
+		DE10033A24893FEF004F9FE1 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DE10033E24894251004F9FE1 /* Common */,
+				DE10033D24894111004F9FE1 /* Camera */,
+				DE10033C24893FFE004F9FE1 /* ViewModel */,
+				DE10033B24893FF5004F9FE1 /* ViewController */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		DE10033B24893FF5004F9FE1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE10030B24893F0E004F9FE1 /* ViewController.swift */,
+				DE06319524B4A39B00E51440 /* CameraViewController.swift */,
+				DEBE4F5C24B5E4DC0056E02A /* PreviewView.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		DE10033C24893FFE004F9FE1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DE10033D24894111004F9FE1 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				DEBE4F6024B5E9B40056E02A /* CameraController.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		DE10033E24894251004F9FE1 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DE10030324893F0E004F9FE1 /* SelfieBet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE10033124893F0F004F9FE1 /* Build configuration list for PBXNativeTarget "SelfieBet" */;
+			buildPhases = (
+				DE10030024893F0E004F9FE1 /* Sources */,
+				DE10030124893F0E004F9FE1 /* Frameworks */,
+				DE10030224893F0E004F9FE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SelfieBet;
+			productName = SelfieBet;
+			productReference = DE10030424893F0E004F9FE1 /* Selfie Betting.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DE10031C24893F0F004F9FE1 /* SelfieBetTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE10033424893F0F004F9FE1 /* Build configuration list for PBXNativeTarget "SelfieBetTests" */;
+			buildPhases = (
+				DE10031924893F0F004F9FE1 /* Sources */,
+				DE10031A24893F0F004F9FE1 /* Frameworks */,
+				DE10031B24893F0F004F9FE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE10031F24893F0F004F9FE1 /* PBXTargetDependency */,
+			);
+			name = SelfieBetTests;
+			productName = SelfieBetTests;
+			productReference = DE10031D24893F0F004F9FE1 /* SelfieBetTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DE10032724893F0F004F9FE1 /* SelfieBetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE10033724893F0F004F9FE1 /* Build configuration list for PBXNativeTarget "SelfieBetUITests" */;
+			buildPhases = (
+				DE10032424893F0F004F9FE1 /* Sources */,
+				DE10032524893F0F004F9FE1 /* Frameworks */,
+				DE10032624893F0F004F9FE1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DE10032A24893F0F004F9FE1 /* PBXTargetDependency */,
+			);
+			name = SelfieBetUITests;
+			productName = SelfieBetUITests;
+			productReference = DE10032824893F0F004F9FE1 /* SelfieBetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DE1002FC24893F0E004F9FE1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = Yongtae.Kwon;
+				TargetAttributes = {
+					DE10030324893F0E004F9FE1 = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					DE10031C24893F0F004F9FE1 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = DE10030324893F0E004F9FE1;
+					};
+					DE10032724893F0F004F9FE1 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = DE10030324893F0E004F9FE1;
+					};
+				};
+			};
+			buildConfigurationList = DE1002FF24893F0E004F9FE1 /* Build configuration list for PBXProject "SelfieBet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DE1002FB24893F0E004F9FE1;
+			productRefGroup = DE10030524893F0E004F9FE1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DE10030324893F0E004F9FE1 /* SelfieBet */,
+				DE10031C24893F0F004F9FE1 /* SelfieBetTests */,
+				DE10032724893F0F004F9FE1 /* SelfieBetUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DE10030224893F0E004F9FE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE10031724893F0F004F9FE1 /* LaunchScreen.storyboard in Resources */,
+				DE10031424893F0F004F9FE1 /* Assets.xcassets in Resources */,
+				DE10030F24893F0E004F9FE1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE10031B24893F0F004F9FE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE10032624893F0F004F9FE1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DE10030024893F0E004F9FE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE10030C24893F0E004F9FE1 /* ViewController.swift in Sources */,
+				DE06319624B4A39B00E51440 /* CameraViewController.swift in Sources */,
+				DE10031224893F0E004F9FE1 /* SelfieBet.xcdatamodeld in Sources */,
+				DE10030824893F0E004F9FE1 /* AppDelegate.swift in Sources */,
+				DE10030A24893F0E004F9FE1 /* SceneDelegate.swift in Sources */,
+				DEBE4F6124B5E9B40056E02A /* CameraController.swift in Sources */,
+				DEBE4F5D24B5E4DC0056E02A /* PreviewView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE10031924893F0F004F9FE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE10032224893F0F004F9FE1 /* SelfieBetTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE10032424893F0F004F9FE1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE10032D24893F0F004F9FE1 /* SelfieBetUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DE10031F24893F0F004F9FE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE10030324893F0E004F9FE1 /* SelfieBet */;
+			targetProxy = DE10031E24893F0F004F9FE1 /* PBXContainerItemProxy */;
+		};
+		DE10032A24893F0F004F9FE1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DE10030324893F0E004F9FE1 /* SelfieBet */;
+			targetProxy = DE10032924893F0F004F9FE1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DE10030D24893F0E004F9FE1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE10030E24893F0E004F9FE1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DE10031524893F0F004F9FE1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DE10031624893F0F004F9FE1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DE10032F24893F0F004F9FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DE10033024893F0F004F9FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DE10033224893F0F004F9FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XHSHW99SQG;
+				INFOPLIST_FILE = SelfieBet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Yongtae.Kwon.SelfieBet;
+				PRODUCT_NAME = "Selfie Betting";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DE10033324893F0F004F9FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = XHSHW99SQG;
+				INFOPLIST_FILE = SelfieBet/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = Yongtae.Kwon.SelfieBet;
+				PRODUCT_NAME = "Selfie Betting";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DE10033524893F0F004F9FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SelfieBetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Yongtae.Kwon.SelfieBetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SelfieBet.app/SelfieBet";
+			};
+			name = Debug;
+		};
+		DE10033624893F0F004F9FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SelfieBetTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Yongtae.Kwon.SelfieBetTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SelfieBet.app/SelfieBet";
+			};
+			name = Release;
+		};
+		DE10033824893F0F004F9FE1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SelfieBetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Yongtae.Kwon.SelfieBetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SelfieBet;
+			};
+			name = Debug;
+		};
+		DE10033924893F0F004F9FE1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SelfieBetUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Yongtae.Kwon.SelfieBetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SelfieBet;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DE1002FF24893F0E004F9FE1 /* Build configuration list for PBXProject "SelfieBet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE10032F24893F0F004F9FE1 /* Debug */,
+				DE10033024893F0F004F9FE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE10033124893F0F004F9FE1 /* Build configuration list for PBXNativeTarget "SelfieBet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE10033224893F0F004F9FE1 /* Debug */,
+				DE10033324893F0F004F9FE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE10033424893F0F004F9FE1 /* Build configuration list for PBXNativeTarget "SelfieBetTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE10033524893F0F004F9FE1 /* Debug */,
+				DE10033624893F0F004F9FE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE10033724893F0F004F9FE1 /* Build configuration list for PBXNativeTarget "SelfieBetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE10033824893F0F004F9FE1 /* Debug */,
+				DE10033924893F0F004F9FE1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DE10031024893F0E004F9FE1 /* SelfieBet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DE10031124893F0E004F9FE1 /* SelfieBet.xcdatamodel */,
+			);
+			currentVersion = DE10031124893F0E004F9FE1 /* SelfieBet.xcdatamodel */;
+			path = SelfieBet.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DE1002FC24893F0E004F9FE1 /* Project object */;
+}
