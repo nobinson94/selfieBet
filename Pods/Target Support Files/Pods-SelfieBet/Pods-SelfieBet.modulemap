@@ -1,0 +1,6 @@
+framework module Pods_SelfieBet {
+  umbrella header "Pods-SelfieBet-umbrella.h"
+
+  export *
+  module * { export * }
+}
