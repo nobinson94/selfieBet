@@ -8,12 +8,14 @@
 
 import AVFoundation
 import Photos
+import RxSwift
+import RxCocoa
 import UIKit
 
 class CameraViewController: UIViewController {
     let cameraController = CameraController()
  
-    @IBOutlet weak var captureButton: UIButton?
+    @IBOutlet weak var captureButton: UIButton!
     @IBOutlet weak var capturePreviewView: UIView?
     @IBOutlet weak var toggleCameraButton: UIButton!
     @IBOutlet weak var recognizedTargetNumber: UILabel!
@@ -22,11 +24,58 @@ class CameraViewController: UIViewController {
 //    @IBOutlet fileprivate var toggleFlashButton: UIButton!
  
     override var prefersStatusBarHidden: Bool { return true }
+    
+    struct Action {
+        let capturePhoto = PublishSubject<Void>()
+        let savePhoto = PublishSubject<Void>()
+        let toggleCameraPosition = PublishSubject<Void>()
+    }
+    
+    struct State {
+        
+    }
+    
+    let action = Action()
+    let state = State()
+    let disposeBag = DisposeBag()
 }
  
 extension CameraViewController {
+    
     override func viewDidLoad() {
         self.cameraControllerSetup()
+        self.setRx()
+    }
+    
+    func setRx() {
+        action.capturePhoto
+            .subscribe(onNext: { [weak self] _ in
+                self?.cameraController.captureImage { [weak self] (image, error) in
+                    guard let image = image else {
+                        return
+                    }
+                    self?.savePhoto(image: image) { [weak self] (isSaved, _) in
+                        if isSaved, let previewView = self?.capturePreviewView {
+                            self?.cameraController.displayCapture(on: previewView, capture: image)
+                        }
+                    }
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        action.toggleCameraPosition
+            .subscribe(onNext: { [weak self] _ in
+                try? self?.cameraController.switchCameraPosition()
+            })
+            .disposed(by: disposeBag)
+        
+        captureButton.rx.tap
+            .bind(to: self.action.capturePhoto)
+            .disposed(by: disposeBag)
+        
+        toggleCameraButton.rx.tap
+            .bind(to: self.action.toggleCameraPosition)
+            .disposed(by: disposeBag)
     }
     
     func cameraControllerSetup() {
@@ -43,23 +92,6 @@ extension CameraViewController {
         PHPhotoLibrary.shared().performChanges( {
             PHAssetChangeRequest.creationRequestForAsset(from: image)
         }, completionHandler: completion)
-    }
-    
-    @IBAction func capturePhoto(_ sender: UIButton) {
-        cameraController.captureImage { [weak self] (image, error) in
-            guard let image = image else {
-                return
-            }
-            self?.savePhoto(image: image) { [weak self] (isSaved, _) in
-                if isSaved, let previewView = self?.capturePreviewView {
-                    self?.cameraController.displayCapture(on: previewView, capture: image)
-                }
-            }
-        }
-    }
-    
-    @IBAction func toogleCameraPosition(_ sender: UIButton) {
-        cameraController.toggleCameraPosition()
     }
 }
 
