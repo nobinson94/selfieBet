@@ -1,21 +1,23 @@
 //
-//  ViewController.swift
+//  PhotoViewController.swift
 //  SelfieBet
 //
-//  Created by 용태권 on 2020/06/04.
+//  Created by 용태권 on 2020/08/05.
 //  Copyright © 2020 Yongtae.Kwon. All rights reserved.
 //
 
-import AVFoundation
+import Foundation
 import RxSwift
-import RxCocoa
 import UIKit
+import Photos
 
-class MainViewController: UIViewController {
+class PhotoViewController: UIViewController {
     
-    
+    @IBOutlet weak var resultImageView: UIImageView?
     @IBOutlet weak var openCameraButton: UIButton!
-    @IBOutlet weak var openAlbumButton: UIButton!
+    @IBOutlet weak var openPhotoLibraryButton: UIButton!
+    
+    var resultImage: UIImage?
     
     struct Action {
         let openCamera = PublishSubject<Void>()
@@ -26,8 +28,8 @@ class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         setRx()
+        resultImageView?.image = resultImage
     }
     
     func setRx() {
@@ -35,21 +37,23 @@ class MainViewController: UIViewController {
             .bind(to: action.openCamera)
             .disposed(by: disposeBag)
         
-        self.openAlbumButton.rx.tap
+        self.openPhotoLibraryButton.rx.tap
             .bind(to: action.openPhotoLibrary)
             .disposed(by: disposeBag)
         
         action.openCamera
             .subscribe(onNext: { [weak self] _ in
                 guard let cameraViewController = self?.storyboard?.instantiateViewController(identifier: "Camera") as? CameraViewController else { return }
-                self?.navigationController?.pushViewController(cameraViewController, animated: true)
+                self?.dismiss(animated: true, completion: {
+                    self?.navigationController?.pushViewController(cameraViewController, animated: true)
+                })
+                
             }).disposed(by: disposeBag)
         
         action.openPhotoLibrary
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
                 guard let imagePickerViewController = self.storyboard?.instantiateViewController(identifier: "ImagePicker") as? ImagePickerViewController else { return }
-                print(self.navigationController)
                 self.present(imagePickerViewController, animated: true, completion: nil)
             }).disposed(by: disposeBag)
     }

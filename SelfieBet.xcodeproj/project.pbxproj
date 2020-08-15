@@ -20,9 +20,13 @@
 		DE10031724893F0F004F9FE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE10031524893F0F004F9FE1 /* LaunchScreen.storyboard */; };
 		DE10032224893F0F004F9FE1 /* SelfieBetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10032124893F0F004F9FE1 /* SelfieBetTests.swift */; };
 		DE10032D24893F0F004F9FE1 /* SelfieBetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10032C24893F0F004F9FE1 /* SelfieBetUITests.swift */; };
-		DE2B383B24CF26DB007FCFBC /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B383A24CF26DB007FCFBC /* AlbumViewController.swift */; };
+		DE292DCF24DF0876006531BB /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE292DCE24DF0876006531BB /* ImagePickerViewController.swift */; };
+		DE292DD124DF0D38006531BB /* ImagePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE292DD024DF0D38006531BB /* ImagePickerViewModel.swift */; };
 		DE2B383D24CF2E2B007FCFBC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2B383C24CF2E2B007FCFBC /* NavigationController.swift */; };
 		DE2B384324D5E960007FCFBC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2B384224D5E960007FCFBC /* RxSwift.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		DE681A3624E1B7E200612878 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE681A3524E1B7E200612878 /* UIImage+Extension.swift */; };
+		DE77117224D9B36100AEBF25 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77117124D9B36100AEBF25 /* PhotoViewController.swift */; };
+		DE77117524D9C12E00AEBF25 /* RandomMakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE77117424D9C12E00AEBF25 /* RandomMakeController.swift */; };
 		DEBE4F5D24B5E4DC0056E02A /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE4F5C24B5E4DC0056E02A /* PreviewView.swift */; };
 		DEBE4F6124B5E9B40056E02A /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBE4F6024B5E9B40056E02A /* CameraController.swift */; };
 /* End PBXBuildFile section */
@@ -69,10 +73,14 @@
 		DE10032824893F0F004F9FE1 /* SelfieBetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SelfieBetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE10032C24893F0F004F9FE1 /* SelfieBetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfieBetUITests.swift; sourceTree = "<group>"; };
 		DE10032E24893F0F004F9FE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DE2B383A24CF26DB007FCFBC /* AlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
+		DE292DCE24DF0876006531BB /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		DE292DD024DF0D38006531BB /* ImagePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewModel.swift; sourceTree = "<group>"; };
 		DE2B383C24CF2E2B007FCFBC /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		DE2B383E24D5E948007FCFBC /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE2B384224D5E960007FCFBC /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE681A3524E1B7E200612878 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		DE77117124D9B36100AEBF25 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		DE77117424D9C12E00AEBF25 /* RandomMakeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomMakeController.swift; sourceTree = "<group>"; };
 		DEBE4F5C24B5E4DC0056E02A /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		DEBE4F6024B5E9B40056E02A /* CameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
 		E5EA75E54B1DECF6919EAA48 /* Pods-SelfieBet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfieBet.debug.xcconfig"; path = "Target Support Files/Pods-SelfieBet/Pods-SelfieBet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -178,10 +186,12 @@
 		DE10033A24893FEF004F9FE1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				DE77117324D9C0F200AEBF25 /* Controller */,
 				DE10033E24894251004F9FE1 /* Common */,
 				DE10033D24894111004F9FE1 /* Camera */,
 				DE10033C24893FFE004F9FE1 /* ViewModel */,
 				DE10033B24893FF5004F9FE1 /* ViewController */,
+				DE681A3524E1B7E200612878 /* UIImage+Extension.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -191,7 +201,8 @@
 			children = (
 				DE10030B24893F0E004F9FE1 /* MainViewController.swift */,
 				DE06319524B4A39B00E51440 /* CameraViewController.swift */,
-				DE2B383A24CF26DB007FCFBC /* AlbumViewController.swift */,
+				DE77117124D9B36100AEBF25 /* PhotoViewController.swift */,
+				DE292DCE24DF0876006531BB /* ImagePickerViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 		DE10033C24893FFE004F9FE1 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DE292DD024DF0D38006531BB /* ImagePickerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -218,6 +230,14 @@
 				DE2B383C24CF2E2B007FCFBC /* NavigationController.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		DE77117324D9C0F200AEBF25 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DE77117424D9C12E00AEBF25 /* RandomMakeController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		F63461A231274FEC5BF1987F /* Frameworks */ = {
@@ -472,14 +492,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE10030C24893F0E004F9FE1 /* MainViewController.swift in Sources */,
+				DE681A3624E1B7E200612878 /* UIImage+Extension.swift in Sources */,
 				DE06319624B4A39B00E51440 /* CameraViewController.swift in Sources */,
-				DE2B383B24CF26DB007FCFBC /* AlbumViewController.swift in Sources */,
 				DE10031224893F0E004F9FE1 /* SelfieBet.xcdatamodeld in Sources */,
+				DE77117524D9C12E00AEBF25 /* RandomMakeController.swift in Sources */,
 				DE2B383D24CF2E2B007FCFBC /* NavigationController.swift in Sources */,
 				DE10030824893F0E004F9FE1 /* AppDelegate.swift in Sources */,
+				DE292DCF24DF0876006531BB /* ImagePickerViewController.swift in Sources */,
 				DE10030A24893F0E004F9FE1 /* SceneDelegate.swift in Sources */,
 				DEBE4F6124B5E9B40056E02A /* CameraController.swift in Sources */,
+				DE292DD124DF0D38006531BB /* ImagePickerViewModel.swift in Sources */,
 				DEBE4F5D24B5E4DC0056E02A /* PreviewView.swift in Sources */,
+				DE77117224D9B36100AEBF25 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
