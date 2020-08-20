@@ -15,10 +15,11 @@ import Photos
 class ImagePickerViewController: UIViewController {
     
     @IBOutlet weak var confirmButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     private let viewModel = ImagePickerViewModel()
     private let disposeBag = DisposeBag()
+    
+    override var prefersStatusBarHidden: Bool { return true }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,9 +41,8 @@ class ImagePickerViewController: UIViewController {
     
     private func setRx() {
         confirmButton.rx.tap
-//            .observeOn(MainScheduler())
             .subscribe(onNext: { [weak self] _ in
-                guard let photoViewController = self?.storyboard?.instantiateViewController(identifier: "Photo") as? PhotoViewController else { return }
+                guard let photoViewController = self?.storyboard?.instantiateViewController(withIdentifier: "Photo") as? PhotoViewController else { return }
                 
                 photoViewController.modalPresentationStyle = .fullScreen
                 guard let asset = self?.viewModel.state.selectAsset.value else { return }
@@ -59,11 +59,6 @@ class ImagePickerViewController: UIViewController {
                                         self?.modalPresentationStyle = .fullScreen
                                         self?.present(photoViewController, animated: true)
                 }
-            }).disposed(by: disposeBag)
-        
-        cancelButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in
-                self?.dismiss(animated: true)
             }).disposed(by: disposeBag)
         
         viewModel.state.selectAsset.asObservable()

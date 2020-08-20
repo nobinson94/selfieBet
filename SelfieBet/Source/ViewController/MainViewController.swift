@@ -13,7 +13,6 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    
     @IBOutlet weak var openCameraButton: UIButton!
     @IBOutlet weak var openAlbumButton: UIButton!
     
@@ -41,15 +40,14 @@ class MainViewController: UIViewController {
         
         action.openCamera
             .subscribe(onNext: { [weak self] _ in
-                guard let cameraViewController = self?.storyboard?.instantiateViewController(identifier: "Camera") as? CameraViewController else { return }
+                guard let cameraViewController = self?.storyboard?.instantiateViewController(withIdentifier: "Camera") as? CameraViewController else { return }
                 self?.navigationController?.pushViewController(cameraViewController, animated: true)
             }).disposed(by: disposeBag)
         
         action.openPhotoLibrary
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else { return }
-                guard let imagePickerViewController = self.storyboard?.instantiateViewController(identifier: "ImagePicker") as? ImagePickerViewController else { return }
-                print(self.navigationController)
+                guard let imagePickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImagePicker") as? ImagePickerViewController else { return }
                 self.present(imagePickerViewController, animated: true, completion: nil)
             }).disposed(by: disposeBag)
     }
