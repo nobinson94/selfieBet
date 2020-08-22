@@ -93,7 +93,7 @@
             </objects>
             <point key="canvasLocation" x="1239" y="408"/>
         </scene>
-        <!--Item-->
+        <!--카메라-->
         <scene sceneID="Wkr-ft-BKh">
             <objects>
                 <viewController storyboardIdentifier="Camera" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M8q-bv-fxx" customClass="CameraViewController" customModule="Selfie_Betting" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,7 +173,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hgJ-H9-ZzQ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="ohj-Gd-bEf"/>
+                    <tabBarItem key="tabBarItem" title="카메라" image="camera.fill" catalog="system" id="ohj-Gd-bEf">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="captureButton" destination="VnK-sQ-fPG" id="KJU-WQ-asz"/>
                         <outlet property="captureImageView" destination="DeB-Vg-iVS" id="YsI-Tm-61v"/>
@@ -206,7 +208,7 @@
             </objects>
             <point key="canvasLocation" x="-1049" y="558"/>
         </scene>
-        <!--Item-->
+        <!--라이브러리-->
         <scene sceneID="jX2-zc-LJb">
             <objects>
                 <viewController storyboardIdentifier="ImagePicker" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WvY-vN-f9K" customClass="ImagePickerViewController" customModule="Selfie_Betting" customModuleProvider="target" sceneMemberID="viewController">
@@ -288,7 +290,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="n7x-6b-YJ3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="eoT-RD-BI9"/>
+                    <tabBarItem key="tabBarItem" title="라이브러리" id="eoT-RD-BI9"/>
                     <connections>
                         <outlet property="collectionView" destination="jnF-e3-Xhf" id="8Dq-aB-96y"/>
                         <outlet property="confirmButton" destination="c4Y-E0-RAg" id="BNS-rx-OWj"/>
@@ -300,6 +302,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="cameraApertureIcon" width="256" height="256"/>
         <image name="cameraSwitchIcon" width="256" height="256"/>
         <namedColor name="MainThemeColor">

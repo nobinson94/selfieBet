@@ -17,7 +17,24 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNeedsStatusBarAppearanceUpdate()
+        self.setTabBarTheme()
         // Do any additional setup after loading the view.
+    }
+    
+    func setTabBarTheme() {
+        self.tabBar.barTintColor = .black
+        tabBar.shadowImage = UIImage()
+        tabBar.backgroundImage = UIImage()
+        print(tabBar.bounds)
+        print(tabBar.frame)
+        tabBar.items?.forEach { item in
+            item.image = nil
+            item.selectedImage = nil
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font : UIFont.systemFont(ofSize: 16, weight: .medium)
+            ]
+            item.setTitleTextAttributes(attributes, for: .normal)
+        }
     }
     
 
