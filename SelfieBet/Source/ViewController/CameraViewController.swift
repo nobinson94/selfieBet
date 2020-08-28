@@ -20,10 +20,12 @@ class CameraViewController: UIViewController {
     
     @IBOutlet weak var captureButton: UIButton!
     @IBOutlet weak var captureImageView: UIImageView!
+    @IBOutlet weak var faceDetectionLayerView: UIView!
     @IBOutlet weak var toggleCameraButton: UIButton!
     @IBOutlet weak var recognizedTargetNumber: UILabel!
     @IBOutlet weak var targetMessageButton: UIButton!
     
+    let popupView = PopupView().loadView() as! PopupView
     
 //    @IBOutlet fileprivate var toggleFlashButton: UIButton!
  
@@ -50,8 +52,6 @@ class CameraViewController: UIViewController {
 extension CameraViewController {
     
     override func viewDidLoad() {
-//        let navigationController = UINavigationController()
-//        navigationController.setViewControllers([self], animated: false)
         self.tabBarVC?.setNeedsStatusBarAppearanceUpdate()
         self.cameraControllerSetup()
         self.setRx()
@@ -68,6 +68,7 @@ extension CameraViewController {
                     DispatchQueue.main.async {
                         guard let photoViewController = self?.storyboard?.instantiateViewController(withIdentifier: "Photo") as? PhotoViewController else { return }
                         photoViewController.resultImage = image
+                        photoViewController.isMirrored = self?.cameraController.currentCameraPosition == .front
                         self?.navigationController?.pushViewController(photoViewController, animated: true)
                     }
                     ///// todo : Save Option 고려하기
@@ -103,16 +104,60 @@ extension CameraViewController {
             .observeOn(MainScheduler())
             .subscribe(onNext: { [weak self] number in
                 if number == 0 {
-                    self?.recognizedTargetNumber.text = "인식된 사람이 없어서 내기를 진행할 수 없습니다"
+                    self?.recognizedTargetNumber.text = "인식된 사람이 없어서 내기를 진행할 수 없습니다."
                 } else {
-                    self?.recognizedTargetNumber.text = "내기에 참s가하는 사람은 \(number)명 입니다!"
+                    self?.recognizedTargetNumber.text = "내기에 참가하는 사람은 \(number)명입니다!"
                 }
             }).disposed(by: disposeBag)
+        
+        popupView.confirmButton.rx.tap
+            .subscribe(onNext: {
+                RandomMakeController.shared.targetNumber.accept(self.popupView.targetNumber.value)
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.popupView.alpha = 0
+                }, completion: { _ in
+                    self.popupView.removeFromSuperview()
+                })
+            }).disposed(by: disposeBag)
+        
+        popupView.cancelButton.rx.tap
+            .subscribe(onNext: {
+                UIView.animate(withDuration: 0.3, animations: {
+                    self.popupView.alpha = 0
+                }, completion: { _ in
+                    self.popupView.removeFromSuperview()
+                })
+            }).disposed(by: disposeBag)
+        
+        targetMessageButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                guard let window = UIApplication.shared.keyWindow else { return }
+                guard let self = self else { return }
+                
+                window.addSubview(self.popupView)
+                let width: CGFloat = 195.0
+                let height: CGFloat = 205.0
+                let windowWidth = window.bounds.width
+                let windowHeight = window.bounds.height
+                self.popupView.alpha = 0
+                self.popupView.targetNumber.accept(RandomMakeController.shared.targetNumber.value)
+                self.popupView.frame = CGRect(x: (windowWidth-width)/2.0, y: (windowHeight-width)/2.0, width: width, height: height)
+                UIView.animate(withDuration: 0.3) {
+                    self.popupView.alpha = 1
+                }
+            }).disposed(by: disposeBag)
+        
+        RandomMakeController.shared.targetNumber.asObservable()
+            .map { "타겟은 \($0)명입니다" }
+            .subscribe(onNext: { text in
+                self.targetMessageButton.setTitle(text, for: .normal)
+            }).disposed(by:disposeBag)
     }
     
     func setView() {
         self.toggleCameraButton.setImage(UIImage(imageLiteralResourceName: "cameraSwitchIcon").maskWithColor(color: .white), for: .normal)
         self.captureButton.setImage(UIImage(imageLiteralResourceName: "cameraApertureIcon").maskWithColor(color: .white), for: .normal)
+        self.targetMessageButton.layer.cornerRadius = 10
     }
     
     func cameraControllerSetup() {
@@ -159,13 +204,12 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 }
             }
         })
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, orientation: .upMirrored, options: [:])
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, orientation: .downMirrored, options: [:])
         try? imageRequestHandler.perform([faceDetectionRequest])
     }
     
     private func handleFaceDetectionResults(_ observedFaces: [VNFaceObservation]) {
         self.state.detectedFaceNumber.accept(observedFaces.count)
-        self.clearDrawings()
         let facesBoundingBoxes: [CAShapeLayer] = observedFaces.map({ (observedFace: VNFaceObservation) -> CAShapeLayer in
             let faceBoundingBoxOnScreen = cameraController.previewLayer.layerRectConverted(fromMetadataOutputRect: observedFace.boundingBox)
             let faceBoundingBoxPath = CGPath(rect: faceBoundingBoxOnScreen, transform: nil)
@@ -176,8 +220,8 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             return faceBoundingBoxShape
         })
         DispatchQueue.main.async {
-            guard let capturePreviewView = self.captureImageView else { return }
-            facesBoundingBoxes.forEach({ faceBoundingBox in capturePreviewView.layer.addSublayer(faceBoundingBox) })
+            self.clearDrawings()
+            facesBoundingBoxes.forEach({ [weak self] faceBoundingBox in self?.faceDetectionLayerView.layer.addSublayer(faceBoundingBox) })
             self.drawings = facesBoundingBoxes
         }
         

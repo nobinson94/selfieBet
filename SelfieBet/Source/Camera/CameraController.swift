@@ -35,7 +35,6 @@ class CameraController: NSObject {
     
     var captureSession = AVCaptureSession()
     var currentCameraPosition: CameraPosition = .rear
-    
     var currentCamera: AVCaptureDevice?
     var currentCameraInput: AVCaptureDeviceInput?
     var rearCamera: AVCaptureDevice?
@@ -135,6 +134,7 @@ extension CameraController {
         self.previewLayer.connection?.videoOrientation = .portrait
      
         view.layer.addSublayer(self.previewLayer)
+        print("DISPLAY PREVIEW")
         self.previewLayer.frame = view.bounds
     }
     

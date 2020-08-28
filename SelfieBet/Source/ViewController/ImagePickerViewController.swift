@@ -42,10 +42,9 @@ class ImagePickerViewController: UIViewController {
     private func setRx() {
         confirmButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                guard let photoViewController = self?.storyboard?.instantiateViewController(withIdentifier: "Photo") as? PhotoViewController else { return }
-                
-                photoViewController.modalPresentationStyle = .fullScreen
-                guard let asset = self?.viewModel.state.selectAsset.value else { return }
+                guard let photoViewController = self?.storyboard?.instantiateViewController(withIdentifier: "Photo") as? PhotoViewController, let asset = self?.viewModel.state.selectAsset.value else {
+                    return
+                }
                 let manager = PHCachingImageManager.default()
                 let width  = photoViewController.resultImageView?.bounds.width ?? 414
                 let height = photoViewController.resultImageView?.bounds.height ?? 512
@@ -56,8 +55,7 @@ class ImagePickerViewController: UIViewController {
                                      contentMode: .aspectFill,
                                      options: ImageCollectionViewCell.phImageOptions) { [weak self] (result, _) in
                                         photoViewController.resultImage = result
-                                        self?.modalPresentationStyle = .fullScreen
-                                        self?.present(photoViewController, animated: true)
+                                        self?.navigationController?.pushViewController(photoViewController, animated: true)
                 }
             }).disposed(by: disposeBag)
         
@@ -139,12 +137,16 @@ extension ImagePickerViewController: UICollectionViewDelegateFlowLayout {
 class ImageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var checkIconView: UIImageView!
     var assetRequestID: PHImageRequestID?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(imageLiteralResourceName: "imagePickerPlaceHolder")
+        checkIconView.image = UIImage(named: "checkIcon")?.maskWithColor(color: UIColor(named: "MainThemeColor") ?? .gray)
+        checkIconView.isHidden = true
+        
     }
     
     override func prepareForReuse() {
@@ -193,9 +195,11 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     func updateCell() {
         if isSelected {
-            self.layer.opacity = 0.5
+            self.imageView.layer.opacity = 0.5
+            self.checkIconView.isHidden = false
         } else {
-            self.layer.opacity = 1
+            self.imageView.layer.opacity = 1
+            self.checkIconView.isHidden = true
         }
     }
     

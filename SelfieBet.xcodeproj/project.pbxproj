@@ -10,9 +10,12 @@
 		680DB547ED059A57F252E963 /* Pods_SelfieBet_SelfieBetUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B65B85D10C8D254FE3166CC1 /* Pods_SelfieBet_SelfieBetUITests.framework */; };
 		869ED545D54A473B86ACE94B /* Pods_SelfieBetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68B6CCFAF5ABC7794129D92F /* Pods_SelfieBetTests.framework */; };
 		AB67528EC956F1CC838F6961 /* Pods_SelfieBet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2651A1E243A7AAE9E39D43F3 /* Pods_SelfieBet.framework */; };
+		CE405F9B24F570BE00EC9F3A /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE405F9A24F570BE00EC9F3A /* PopupView.swift */; };
+		CE72554B24F4118D0086063F /* CustomModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72554A24F4118D0086063F /* CustomModalViewController.swift */; };
+		CE72554D24F4129E0086063F /* ModalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE72554C24F4129E0086063F /* ModalController.swift */; };
+		CEABEC1A24F7EDB80065AEC2 /* PopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEABEC1924F7EDB80065AEC2 /* PopupView.xib */; };
 		DE06319624B4A39B00E51440 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE06319524B4A39B00E51440 /* CameraViewController.swift */; };
 		DE10030824893F0E004F9FE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10030724893F0E004F9FE1 /* AppDelegate.swift */; };
-		DE10030C24893F0E004F9FE1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE10030B24893F0E004F9FE1 /* MainViewController.swift */; };
 		DE10030F24893F0E004F9FE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE10030D24893F0E004F9FE1 /* Main.storyboard */; };
 		DE10031224893F0E004F9FE1 /* SelfieBet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE10031024893F0E004F9FE1 /* SelfieBet.xcdatamodeld */; };
 		DE10031424893F0F004F9FE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE10031324893F0F004F9FE1 /* Assets.xcassets */; };
@@ -58,10 +61,13 @@
 		945C5CB412AD6BE45FC2FF9C /* Pods-SelfieBetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfieBetTests.debug.xcconfig"; path = "Target Support Files/Pods-SelfieBetTests/Pods-SelfieBetTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B65B85D10C8D254FE3166CC1 /* Pods_SelfieBet_SelfieBetUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfieBet_SelfieBetUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA4332513894A8B5F457772A /* Pods-SelfieBetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfieBetTests.release.xcconfig"; path = "Target Support Files/Pods-SelfieBetTests/Pods-SelfieBetTests.release.xcconfig"; sourceTree = "<group>"; };
+		CE405F9A24F570BE00EC9F3A /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		CE72554A24F4118D0086063F /* CustomModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalViewController.swift; sourceTree = "<group>"; };
+		CE72554C24F4129E0086063F /* ModalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalController.swift; sourceTree = "<group>"; };
+		CEABEC1924F7EDB80065AEC2 /* PopupView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopupView.xib; sourceTree = "<group>"; };
 		DE06319524B4A39B00E51440 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		DE10030424893F0E004F9FE1 /* Selfie Betting.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Selfie Betting.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE10030724893F0E004F9FE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE10030B24893F0E004F9FE1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DE10030E24893F0E004F9FE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE10031124893F0E004F9FE1 /* SelfieBet.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SelfieBet.xcdatamodel; sourceTree = "<group>"; };
 		DE10031324893F0F004F9FE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +199,8 @@
 				DE10033C24893FFE004F9FE1 /* ViewModel */,
 				DE10033B24893FF5004F9FE1 /* ViewController */,
 				DE681A3524E1B7E200612878 /* UIImage+Extension.swift */,
+				CE405F9A24F570BE00EC9F3A /* PopupView.swift */,
+				CEABEC1924F7EDB80065AEC2 /* PopupView.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -200,7 +208,6 @@
 		DE10033B24893FF5004F9FE1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				DE10030B24893F0E004F9FE1 /* MainViewController.swift */,
 				DE06319524B4A39B00E51440 /* CameraViewController.swift */,
 				DE77117124D9B36100AEBF25 /* PhotoViewController.swift */,
 				DE292DCE24DF0876006531BB /* ImagePickerViewController.swift */,
@@ -231,6 +238,7 @@
 			children = (
 				DE2B383C24CF2E2B007FCFBC /* NavigationController.swift */,
 				DE681A3924EA99CB00612878 /* TabBarController.swift */,
+				CE72554A24F4118D0086063F /* CustomModalViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				DE77117424D9C12E00AEBF25 /* RandomMakeController.swift */,
+				CE72554C24F4129E0086063F /* ModalController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -364,6 +373,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEABEC1A24F7EDB80065AEC2 /* PopupView.xib in Resources */,
 				DE10031724893F0F004F9FE1 /* LaunchScreen.storyboard in Resources */,
 				DE10031424893F0F004F9FE1 /* Assets.xcassets in Resources */,
 				DE10030F24893F0E004F9FE1 /* Main.storyboard in Resources */,
@@ -495,13 +505,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE8F701D24EAAFF6009DC49E /* TestViewController.swift in Sources */,
-				DE10030C24893F0E004F9FE1 /* MainViewController.swift in Sources */,
 				DE681A3624E1B7E200612878 /* UIImage+Extension.swift in Sources */,
 				DE06319624B4A39B00E51440 /* CameraViewController.swift in Sources */,
 				DE10031224893F0E004F9FE1 /* SelfieBet.xcdatamodeld in Sources */,
 				DE77117524D9C12E00AEBF25 /* RandomMakeController.swift in Sources */,
+				CE72554B24F4118D0086063F /* CustomModalViewController.swift in Sources */,
 				DE2B383D24CF2E2B007FCFBC /* NavigationController.swift in Sources */,
+				CE72554D24F4129E0086063F /* ModalController.swift in Sources */,
 				DE10030824893F0E004F9FE1 /* AppDelegate.swift in Sources */,
+				CE405F9B24F570BE00EC9F3A /* PopupView.swift in Sources */,
 				DE292DCF24DF0876006531BB /* ImagePickerViewController.swift in Sources */,
 				DEBE4F6124B5E9B40056E02A /* CameraController.swift in Sources */,
 				DE292DD124DF0D38006531BB /* ImagePickerViewModel.swift in Sources */,

@@ -14,10 +14,12 @@ import Photos
 class PhotoViewController: UIViewController {
     
     @IBOutlet weak var resultImageView: UIImageView?
-    @IBOutlet weak var openCameraButton: UIButton!
-    @IBOutlet weak var openPhotoLibraryButton: UIButton!
+    @IBOutlet weak var startRandomButton: UIButton!
+    @IBOutlet weak var dismissButton: UIButton!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var resultImage: UIImage?
+    var isMirrored: Bool?
     
     struct Action {
         let openCamera = PublishSubject<Void>()
@@ -29,32 +31,19 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         setRx()
+        resultImageView?.contentMode = .scaleAspectFit
         resultImageView?.image = resultImage
+        if isMirrored ?? false {
+            resultImageView?.transform = CGAffineTransform(scaleX: -1, y: 1);
+        }
+        startRandomButton.layer.cornerRadius = 10
     }
     
     func setRx() {
-        self.openCameraButton.rx.tap
-            .bind(to: action.openCamera)
-            .disposed(by: disposeBag)
-        
-        self.openPhotoLibraryButton.rx.tap
-            .bind(to: action.openPhotoLibrary)
-            .disposed(by: disposeBag)
-        
-        action.openCamera
+        dismissButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
-                guard let cameraViewController = self?.storyboard?.instantiateViewController(withIdentifier: "Camera") as? CameraViewController else { return }
-                self?.dismiss(animated: true, completion: {
-                    self?.navigationController?.pushViewController(cameraViewController, animated: true)
-                })
-                
+                self?.navigationController?.popViewController(animated: true)
             }).disposed(by: disposeBag)
         
-        action.openPhotoLibrary
-            .subscribe(onNext: { [weak self] _ in
-                guard let self = self else { return }
-                guard let imagePickerViewController = self.storyboard?.instantiateViewController(withIdentifier: "ImagePicker") as? ImagePickerViewController else { return }
-                self.present(imagePickerViewController, animated: true, completion: nil)
-            }).disposed(by: disposeBag)
     }
 }

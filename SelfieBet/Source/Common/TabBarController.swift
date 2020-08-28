@@ -22,13 +22,14 @@ class TabBarController: UITabBarController {
     }
     
     func setTabBarTheme() {
-        self.tabBar.barTintColor = .black
+//        tabBar.barTintColor = UIColor(red: 112, green: 112, blue: 112, alpha: 0.5)
         tabBar.shadowImage = UIImage()
         tabBar.backgroundImage = UIImage()
-        print(tabBar.bounds)
-        print(tabBar.frame)
+        let height = tabBar.frame.height
         tabBar.items?.forEach { item in
-            item.image = nil
+            item.image = UIImage()
+            item.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -height/2 + 16)
             item.selectedImage = nil
             let attributes: [NSAttributedString.Key: Any] = [
                 .font : UIFont.systemFont(ofSize: 16, weight: .medium)
