@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oSE-Do-Jkd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oSE-Do-Jkd">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,7 +39,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtI-xX-Dxi">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KtI-xX-Dxi">
                                 <rect key="frame" x="117" y="767" width="180" height="80"/>
                                 <color key="backgroundColor" white="0.45000000000000001" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -48,7 +49,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="결과 보기">
                                     <color key="titleColor" name="MainThemeColor"/>
-                                    <color key="titleShadowColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" systemColor="systemGreenColor"/>
                                 </state>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xPo-bR-KYg">
@@ -57,6 +58,9 @@
                                     <constraint firstAttribute="width" secondItem="xPo-bR-KYg" secondAttribute="height" multiplier="3:4" id="kYl-FX-OfA"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7OH-Kx-8Q9">
+                                <rect key="frame" x="0.0" y="99" width="414" height="552"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="em5-gf-LBf">
                                 <rect key="frame" x="10" y="60" width="28" height="22"/>
                                 <constraints>
@@ -73,24 +77,29 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="p7g-QK-LRi"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="p7g-QK-LRi" firstAttribute="trailing" secondItem="xPo-bR-KYg" secondAttribute="trailing" id="7go-t9-PWX"/>
                             <constraint firstItem="xPo-bR-KYg" firstAttribute="top" secondItem="p7g-QK-LRi" secondAttribute="top" constant="55" id="IDx-zw-MjX"/>
                             <constraint firstItem="KtI-xX-Dxi" firstAttribute="centerX" secondItem="vgX-YZ-siu" secondAttribute="centerX" id="PI1-Jj-qLp"/>
                             <constraint firstItem="xPo-bR-KYg" firstAttribute="top" secondItem="SSS-Wa-WiA" secondAttribute="bottom" constant="15" id="Pc0-en-nkv"/>
+                            <constraint firstItem="7OH-Kx-8Q9" firstAttribute="leading" secondItem="xPo-bR-KYg" secondAttribute="leading" id="VJK-u9-kPL"/>
+                            <constraint firstItem="7OH-Kx-8Q9" firstAttribute="top" secondItem="xPo-bR-KYg" secondAttribute="top" id="Zh0-mW-HKs"/>
                             <constraint firstItem="p7g-QK-LRi" firstAttribute="bottom" secondItem="KtI-xX-Dxi" secondAttribute="bottom" constant="15" id="gCP-z5-aNC"/>
                             <constraint firstItem="SSS-Wa-WiA" firstAttribute="centerX" secondItem="vgX-YZ-siu" secondAttribute="centerX" id="jpV-d2-JuM"/>
                             <constraint firstItem="xPo-bR-KYg" firstAttribute="centerX" secondItem="vgX-YZ-siu" secondAttribute="centerX" id="lER-0J-Vcq"/>
                             <constraint firstItem="SSS-Wa-WiA" firstAttribute="centerY" secondItem="em5-gf-LBf" secondAttribute="centerY" id="mKO-d1-oEO"/>
+                            <constraint firstItem="7OH-Kx-8Q9" firstAttribute="bottom" secondItem="xPo-bR-KYg" secondAttribute="bottom" id="oyL-io-H0h"/>
                             <constraint firstItem="xPo-bR-KYg" firstAttribute="leading" secondItem="p7g-QK-LRi" secondAttribute="leading" id="sG9-z0-uZp"/>
+                            <constraint firstItem="7OH-Kx-8Q9" firstAttribute="trailing" secondItem="xPo-bR-KYg" secondAttribute="trailing" id="vZB-S8-Zay"/>
                             <constraint firstItem="em5-gf-LBf" firstAttribute="leading" secondItem="p7g-QK-LRi" secondAttribute="leading" constant="10" id="xLN-x8-Hlr"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="p7g-QK-LRi"/>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="SSS-Wa-WiA" id="Ls4-LO-FFO"/>
                         <outlet property="dismissButton" destination="em5-gf-LBf" id="PO1-lk-ofA"/>
+                        <outlet property="faceDetectionLayerView" destination="7OH-Kx-8Q9" id="ypo-RE-1fu"/>
                         <outlet property="resultImageView" destination="xPo-bR-KYg" id="bpW-Dp-CRH"/>
                         <outlet property="startRandomButton" destination="KtI-xX-Dxi" id="z4A-MW-zex"/>
                     </connections>
@@ -110,7 +119,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BqU-qY-cKn">
                                 <rect key="frame" x="0.0" y="44" width="414" height="55"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqE-RY-5Aa">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gqE-RY-5Aa">
                                         <rect key="frame" x="119.5" y="5" width="175" height="45"/>
                                         <color key="backgroundColor" white="0.45000000000000001" alpha="0.45000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -169,6 +178,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="hgJ-H9-ZzQ"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tli-cd-CuW" firstAttribute="top" secondItem="DeB-Vg-iVS" secondAttribute="bottom" constant="10" id="0gg-Rb-jz7"/>
@@ -186,7 +196,6 @@
                             <constraint firstItem="DeB-Vg-iVS" firstAttribute="top" secondItem="BqU-qY-cKn" secondAttribute="bottom" constant="10" id="pZ9-mv-UmD"/>
                             <constraint firstItem="tli-cd-CuW" firstAttribute="centerX" secondItem="4zl-tL-tJ1" secondAttribute="centerX" id="scT-0P-JZR"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hgJ-H9-ZzQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="카메라" image="camera.fill" catalog="system" id="ohj-Gd-bEf">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
@@ -278,17 +287,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhj-KE-rSG">
                                 <rect key="frame" x="0.0" y="44" width="414" height="55"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4Y-E0-RAg" userLabel="Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4Y-E0-RAg" userLabel="Button">
                                         <rect key="frame" x="369" y="5" width="30" height="45"/>
                                         <state key="normal" title="확인"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진 선택하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Mp-ru-7de">
-                                        <rect key="frame" x="158" y="5" width="98.5" height="45"/>
+                                        <rect key="frame" x="158" y="5" width="98" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <viewLayoutGuide key="safeArea" id="Wbw-wm-nFD"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Wbw-wm-nFD" firstAttribute="trailing" secondItem="c4Y-E0-RAg" secondAttribute="trailing" constant="15" id="2AQ-e5-q2d"/>
@@ -301,10 +311,10 @@
                                     <constraint firstItem="5Mp-ru-7de" firstAttribute="centerY" secondItem="rhj-KE-rSG" secondAttribute="centerY" id="jxL-ht-Scb"/>
                                     <constraint firstAttribute="bottom" secondItem="c4Y-E0-RAg" secondAttribute="bottom" constant="5" id="lTU-Ml-2Vn"/>
                                 </constraints>
-                                <viewLayoutGuide key="safeArea" id="Wbw-wm-nFD"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="n7x-6b-YJ3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="jnF-e3-Xhf" firstAttribute="top" secondItem="n7x-6b-YJ3" secondAttribute="top" id="AtZ-0l-xNm"/>
                             <constraint firstItem="rhj-KE-rSG" firstAttribute="top" secondItem="n7x-6b-YJ3" secondAttribute="top" id="FtV-5m-KYB"/>
@@ -314,7 +324,6 @@
                             <constraint firstItem="jnF-e3-Xhf" firstAttribute="leading" secondItem="n7x-6b-YJ3" secondAttribute="leading" id="tCs-BX-gA0"/>
                             <constraint firstAttribute="bottom" secondItem="jnF-e3-Xhf" secondAttribute="bottom" constant="34" id="zma-rc-D3E"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="n7x-6b-YJ3"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="라이브러리" id="eoT-RD-BI9"/>
                     <connections>
@@ -328,12 +337,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera.fill" catalog="system" width="128" height="96"/>
+        <image name="camera.fill" catalog="system" width="128" height="94"/>
         <image name="cameraApertureIcon" width="256" height="256"/>
         <image name="cameraSwitchIcon" width="256" height="256"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <namedColor name="MainThemeColor">
             <color red="0.43599998950958252" green="0.84899997711181641" blue="0.52100002765655518" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

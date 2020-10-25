@@ -6,12 +6,15 @@
 //  Copyright © 2020 Yongtae.Kwon. All rights reserved.
 //
 
-import AVFoundation
 import Photos
 import RxSwift
 import RxCocoa
 import UIKit
 import Vision
+import AVKit
+import ARKit
+import CoreML
+import SceneKit
 
 class CameraViewController: UIViewController {
     let cameraController = CameraController()
@@ -52,6 +55,7 @@ class CameraViewController: UIViewController {
 extension CameraViewController {
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.tabBarVC?.setNeedsStatusBarAppearanceUpdate()
         self.cameraControllerSetup()
         self.setRx()
@@ -68,6 +72,7 @@ extension CameraViewController {
                     DispatchQueue.main.async {
                         guard let photoViewController = self?.storyboard?.instantiateViewController(withIdentifier: "Photo") as? PhotoViewController else { return }
                         photoViewController.resultImage = image
+                        photoViewController.drawings = self?.drawings ?? []
                         photoViewController.isMirrored = self?.cameraController.currentCameraPosition == .front
                         self?.navigationController?.pushViewController(photoViewController, animated: true)
                     }
@@ -99,14 +104,15 @@ extension CameraViewController {
             .bind(to: self.action.toggleCameraPosition)
             .disposed(by: disposeBag)
         
-        state.detectedFaceNumber.asObservable()
-            .distinctUntilChanged()
+        Observable.combineLatest(state.detectedFaceNumber.asObservable(), RandomMakeController.shared.targetNumber.asObservable()).asObservable()
             .observeOn(MainScheduler())
-            .subscribe(onNext: { [weak self] number in
-                if number == 0 {
+            .subscribe(onNext: { [weak self] detectedFaceNumber, targetNumber in
+                if detectedFaceNumber == 0 {
                     self?.recognizedTargetNumber.text = "인식된 사람이 없어서 내기를 진행할 수 없습니다."
+                } else if detectedFaceNumber < targetNumber {
+                    self?.recognizedTargetNumber.text = "인식된 사람의 숫자가 술래의 숫자보다 적습니다."
                 } else {
-                    self?.recognizedTargetNumber.text = "내기에 참가하는 사람은 \(number)명입니다!"
+                    self?.recognizedTargetNumber.text = "내기에 참가하는 사람은 \(detectedFaceNumber)명입니다!"
                 }
             }).disposed(by: disposeBag)
         
@@ -181,6 +187,13 @@ extension CameraViewController {
         }, completionHandler: completion)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.popupView.superview != nil {
+            self.popupView.removeFromSuperview()
+        }
+    }
+    
 }
 
 extension CameraViewController {
@@ -191,7 +204,7 @@ extension CameraViewController {
     }
 }
 
-extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
+extension CameraViewController {
 
     func detectFace(in image: CVPixelBuffer) {
         let faceDetectionRequest = VNDetectFaceRectanglesRequest(completionHandler: { (request: VNRequest, error: Error?) in
@@ -204,7 +217,7 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
                 }
             }
         })
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, orientation: .downMirrored, options: [:])
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, options: [:])
         try? imageRequestHandler.perform([faceDetectionRequest])
     }
     
@@ -214,14 +227,16 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             let faceBoundingBoxOnScreen = cameraController.previewLayer.layerRectConverted(fromMetadataOutputRect: observedFace.boundingBox)
             let faceBoundingBoxPath = CGPath(rect: faceBoundingBoxOnScreen, transform: nil)
             let faceBoundingBoxShape = CAShapeLayer()
-            faceBoundingBoxShape.path = faceBoundingBoxPath
+            faceBoundingBoxShape.path = faceBoundingBoxPath.pointRounded()
             faceBoundingBoxShape.fillColor = UIColor.clear.cgColor
+            faceBoundingBoxShape.lineWidth = 3.0
             faceBoundingBoxShape.strokeColor = UIColor(named: "MainThemeColor")?.cgColor
             return faceBoundingBoxShape
         })
         DispatchQueue.main.async {
             self.clearDrawings()
-            facesBoundingBoxes.forEach({ [weak self] faceBoundingBox in self?.faceDetectionLayerView.layer.addSublayer(faceBoundingBox) })
+            facesBoundingBoxes.forEach({ [weak self] faceBoundingBox in
+                self?.faceDetectionLayerView.layer.addSublayer(faceBoundingBox) })
             self.drawings = facesBoundingBoxes
         }
         
@@ -233,3 +248,11 @@ extension CameraViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
 }
 
 // camera용 뷰컨트롤러를 따로 만들어주는게 낫겟다.. Container랑
+
+extension CGPath {
+    func pointRounded() -> CGPath {
+        let rect = self.boundingBox
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 5, height: 5)).cgPath
+        return path
+    }
+}

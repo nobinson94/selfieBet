@@ -34,7 +34,7 @@ public enum CameraPosition {
 class CameraController: NSObject {
     
     var captureSession = AVCaptureSession()
-    var currentCameraPosition: CameraPosition = .rear
+    var currentCameraPosition: CameraPosition = .front
     var currentCamera: AVCaptureDevice?
     var currentCameraInput: AVCaptureDeviceInput?
     var rearCamera: AVCaptureDevice?
@@ -102,7 +102,7 @@ class CameraController: NSObject {
             if captureSession.canAddOutput(output) { captureSession.addOutput(output) }
             guard let connection = output.connection(with: AVMediaType.video),
                 connection.isVideoOrientationSupported else { return }
-            connection.videoOrientation = .portrait
+            //connection.videoOrientation = .portrait
         }
         
         DispatchQueue(label: "prepare").async {
@@ -134,8 +134,11 @@ extension CameraController {
         self.previewLayer.connection?.videoOrientation = .portrait
      
         view.layer.addSublayer(self.previewLayer)
-        print("DISPLAY PREVIEW")
-        self.previewLayer.frame = view.bounds
+        DispatchQueue.main.async {
+            self.previewLayer.frame = view.bounds
+            print("## PREVIEW LAYER", self.previewLayer.frame)
+            print("## PREVIEW VIEW", view.frame)
+        }
     }
     
     func updatePreview(on view: UIView) {
