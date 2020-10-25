@@ -8,6 +8,7 @@ target 'SelfieBet' do
   # Pods for SelfieBet
   pod 'RxSwift', '~> 5.1'
   pod 'RxCocoa'
+  pod 'Then'
   
   target 'SelfieBetTests' do
     inherit! :search_paths
