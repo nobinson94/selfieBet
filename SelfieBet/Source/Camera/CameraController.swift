@@ -136,8 +136,6 @@ extension CameraController {
         view.layer.addSublayer(self.previewLayer)
         DispatchQueue.main.async {
             self.previewLayer.frame = view.bounds
-            print("## PREVIEW LAYER", self.previewLayer.frame)
-            print("## PREVIEW VIEW", view.frame)
         }
     }
     
@@ -192,7 +190,6 @@ extension CameraController {
 
 extension CameraController: AVCapturePhotoCaptureDelegate {
     public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        // photoCaptureCompletionBlock 부분을 delegate로 바꿔주자
         if let error = error {
             self.photoCaptureCompletionBlock?(nil, error)
         } else if let imageData = photo.fileDataRepresentation() {
@@ -202,7 +199,6 @@ extension CameraController: AVCapturePhotoCaptureDelegate {
             self.photoCaptureCompletionBlock?(nil, CameraControllerError.unknown)
         }
     }
-    
 }
 
 extension CameraController: AVCaptureVideoDataOutputSampleBufferDelegate {

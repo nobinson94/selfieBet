@@ -177,7 +177,6 @@ extension CameraViewController {
                 self.detectFace(in: buffer)
             }
             try? self.cameraController.displayPreview(on: capturePreviewView)
-
         }
     }
     
@@ -217,26 +216,37 @@ extension CameraViewController {
                 }
             }
         })
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, options: [:])
+        var requestOptions: [VNImageOption : Any] = [:]
+        if let cameraIntrinsicData = CMGetAttachment(image, key: kCMSampleBufferAttachmentKey_CameraIntrinsicMatrix, attachmentModeOut: nil) {
+            requestOptions = [.cameraIntrinsics : cameraIntrinsicData]
+        }
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: image, options: requestOptions)
         try? imageRequestHandler.perform([faceDetectionRequest])
     }
     
     private func handleFaceDetectionResults(_ observedFaces: [VNFaceObservation]) {
         self.state.detectedFaceNumber.accept(observedFaces.count)
         let facesBoundingBoxes: [CAShapeLayer] = observedFaces.map({ (observedFace: VNFaceObservation) -> CAShapeLayer in
-            let faceBoundingBoxOnScreen = cameraController.previewLayer.layerRectConverted(fromMetadataOutputRect: observedFace.boundingBox)
+            let transform = CGAffineTransform(scaleX: 1, y: -1).translatedBy(x: 0, y: -1)
+            
+            let boundingBox = observedFace.boundingBox.applying(transform)
+            let faceBoundingBoxOnScreen = cameraController.previewLayer.layerRectConverted(fromMetadataOutputRect: boundingBox)
+            
             let faceBoundingBoxPath = CGPath(rect: faceBoundingBoxOnScreen, transform: nil)
             let faceBoundingBoxShape = CAShapeLayer()
             faceBoundingBoxShape.path = faceBoundingBoxPath.pointRounded()
             faceBoundingBoxShape.fillColor = UIColor.clear.cgColor
             faceBoundingBoxShape.lineWidth = 3.0
+            faceBoundingBoxShape.opacity = 0.7
             faceBoundingBoxShape.strokeColor = UIColor(named: "MainThemeColor")?.cgColor
             return faceBoundingBoxShape
         })
         DispatchQueue.main.async {
             self.clearDrawings()
             facesBoundingBoxes.forEach({ [weak self] faceBoundingBox in
-                self?.faceDetectionLayerView.layer.addSublayer(faceBoundingBox) })
+                //self?.faceDetectionLayerView.layer.insertSublayer(faceBoundingBox, at: 1)
+                self?.faceDetectionLayerView.layer.addSublayer(faceBoundingBox)
+            })
             self.drawings = facesBoundingBoxes
         }
         
